@@ -32,7 +32,7 @@ WHERE o.date like '2015-03-%' and od.pizza_id like 'hawaiian%'
 
 -- zadanie 3
 
-
+;
 with cte as(
 	select order_details_id
 		  ,quantity * price AS total_price
@@ -53,7 +53,7 @@ from cte
 
 
 -- zadanie 4
-
+;
 with res4 as(
 	select od.order_id,
 		sum(p.price*od.quantity) AS order_amount, 
@@ -63,7 +63,7 @@ with res4 as(
 	join pizzas p on p.pizza_id = od.pizza_id
 	join orders o on o.order_id = od.order_id
 	group by od.order_id, o.date
-)
+),
 
 avg_res4 as(
 	select avg(order_amount) AS average_month_amount, 
@@ -84,7 +84,7 @@ join avg_res4 on avg_res4.month_amount = res4.month_amount
 
 
 -- zadanie 5
-
+;
 with res5 as(
 	select od.quantity, o.time, o.date
 	from order_details od
@@ -102,7 +102,7 @@ group by date, left(time,2)
 
 
 -- zadanie 6
-
+;
 with res6 as (
 	select od.quantity, p.pizza_type_id, pt.name, pt.category
 	from order_details od
@@ -126,7 +126,7 @@ order by pizzas_count desc
 
 
 -- zadanie 7
-
+;
 with res7 as(
 	select od.quantity, 
 		od.pizza_id, 
