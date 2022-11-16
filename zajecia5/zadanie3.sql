@@ -1,0 +1,1 @@
+CREATE CLUSTERD INDEX idx_customer_state on [dbo].[DIMCustomers]([state]);
